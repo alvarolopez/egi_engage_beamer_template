@@ -12,13 +12,17 @@
 \setbeamercolor{section in head}{fg=egiblue}
 \setbeamercolor{egi in head}{fg=egiblue}
 \setbeamercolor{date in foot}{fg=white,bg=egiblue}
+\setbeamercolor{alerted text}{fg=egiblue!90!black}
+\setbeamerfont{alerted text}{series=\bfseries}
+
+\setbeamertemplate{itemize item}{{\color{egiblue}$\bullet$}}
+\setbeamertemplate{itemize subitem}{{\color{egiblue}\textbf{--}}}
+\setbeamertemplate{itemize subsubitem}{{\color{egiblue}$\scriptstyle\blacktriangleright$}}
 
 \setbeamertemplate{navigation symbols}{}
 
 \newbox\logobox
 \setbox\logobox\hbox{\includegraphics[height=\head@height]{images/egi-engage.png}}
-
-\defbeamertemplate*{headline}{egi theme}{\hrule height0pt depth0pt}
 
 \newdimen\headI
 
@@ -33,6 +37,8 @@
         \fi
     \fi
 }
+
+\defbeamertemplate*{headline}{egi theme}{\hrule height0pt depth0pt}
 
 \defbeamertemplate*{frametitle}{egi theme} {
     \nointerlineskip
@@ -56,6 +62,7 @@
 
 \define@key{beamerframe}{final}[true]{
     \setbeamertemplate{frametitle}{}
+    \color{egiblue}
 }
 
 \defbeamertemplate*{footline}{egi theme} {
@@ -93,14 +100,6 @@
     }
 }
 
-
-\setbeamercolor{alerted text}{fg=egiblue!90!black}
-\setbeamerfont{alerted text}{series=\bfseries}
-
-\setbeamertemplate{itemize item}{{\color{egiblue}$\bullet$}}
-\setbeamertemplate{itemize subitem}{{\color{egiblue}\textbf{--}}}
-\setbeamertemplate{itemize subsubitem}{{\color{egiblue}$\scriptstyle\blacktriangleright$}}
-
 \setbeamertemplate{background}{
     \isitfrontorback{
         \includegraphics[height=\paperheight]{images/back.png}
@@ -109,7 +108,6 @@
     }
 }
 
-\newdimen\headP
 \setbeamertemplate{title page}{
     \nointerlineskip
     \lineskip=0pt

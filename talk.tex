@@ -4,36 +4,36 @@
 
 \begin{document}
 
-\title{Presentation title goes here and it should break into several lines}
-\author[F.Lopez]{Fulano Lopez \inst{1}\\
+\title{Presentation title}
+\author[J. Doea]{John Doe \inst{1}\\
 fulano@example.org \\~
 }
 
 \institute[foo] % (optional, but mostly needed)
 {
-    \inst{1}%
+    \inst{1}
     Foo Institute
 }
 
+% This will create the frame title, should be untouched.
 \begin{frame}
     \maketitle
 \end{frame}
 
-
+% Add the content here
 \begin{frame}[fragile]
-    \frametitle{Frame title is here}
-    \framesubtitle{Frame subtitle is here (may be empty)}
-    Content goes here.
+    \frametitle{Frame title}
+    \framesubtitle{Frame subtitle}
+    Content.
 \end{frame}
 
+% This will create the final slide, should be untouched
 \begin{frame}[final]
-    \color{egiblue}{
-        \Huge \textbf{Thank you for your attention.}
+    \Huge \textbf{Thank you for your attention.}
 
-        \bigskip
+    \bigskip
 
-        \large \textit{Questions?}
-    }
+    \large \textit{Questions?}
 \end{frame}
 
 \end{document}
