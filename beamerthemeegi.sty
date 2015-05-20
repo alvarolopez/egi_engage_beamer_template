@@ -43,8 +43,7 @@
 }
 
 \defbeamertemplate*{footline}{egi theme} {
-    \ifnum \thepage=1\relax
-
+    \ifnum \value{page} = 1 \relax
         \begin{beamercolorbox}{egi in head}
             \quad \includegraphics[height=\head@height]{images/egi.png}
             \vspace{1em}
@@ -80,7 +79,7 @@
 \setbeamertemplate{itemize subsubitem}{{\color{egiblue}$\scriptstyle\blacktriangleright$}}
 
 \setbeamertemplate{background}{
-    \ifnum \thepage=1\relax
+    \ifnum \value{page} = 1 \relax
         \includegraphics[height=\paperheight]{images/back.png}
     \else
         \includegraphics[height=0.5\paperheight]{images/back_white.png}
