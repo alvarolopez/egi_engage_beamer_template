@@ -22,6 +22,18 @@
 
 \newdimen\headI
 
+\newcommand{\isitfrontorback}[2] {
+    \ifnum \value{page} = 1
+        #1
+    \else
+        \ifnum \value{page} = \inserttotalframenumber
+            #1
+        \else
+            #2
+        \fi
+    \fi
+}
+
 \defbeamertemplate*{frametitle}{egi theme} {
     \nointerlineskip
     \baselineskip=0pt
@@ -42,8 +54,12 @@
     \end{beamercolorbox}
 }
 
+\define@key{beamerframe}{final}[true]{
+    \setbeamertemplate{frametitle}{}
+}
+
 \defbeamertemplate*{footline}{egi theme} {
-    \ifnum \value{page} = 1 \relax
+    \isitfrontorback{
         \begin{beamercolorbox}{egi in head}
             \quad \includegraphics[height=\head@height]{images/egi.png}
             \vspace{1em}
@@ -53,21 +69,28 @@
         \end{beamercolorbox}
         \hfill
         \begin{beamercolorbox}[wd=0.9\paperwidth,dp=0pt]{egi in head}
-            \quad www.egi.eu
+            \quad \href{http://www.egi.eu}{www.egi.eu}
             \hfill
             \raggedleft
-            \tiny EGI-Engage is co-funded by the Horizon 2020 Framework Programme \\
-            of the European Union under grant  number 654142
+            \ifnum \value{page} = 1
+                \tiny EGI-Engage is co-funded by the Horizon 2020 Framework
+                Programme \\ of the European Union under grant number 654142
+            \else
+                \tiny This work by Parties of the EGI-Engage Consortium is
+                licensed under a \\
+                \href{http://creativecommons.org/licenses/by/4.0/}{\underline{Creative
+                Commons Attribution 4.0 International License}}.
+            \fi
             \vspace{0.1cm}
         \end{beamercolorbox}  
         \includegraphics[height=0.6cm]{images/eu.png}
         \quad\strut
-    \else
-            \leavevmode
-            \begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1ex]{date in foot}
-                {\flushleft \quad \today \hfill \insertframenumber \quad \strut }
-            \end{beamercolorbox}
-    \fi
+    }{
+        \leavevmode
+        \begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1ex]{date in foot}
+            {\flushleft \quad \today \hfill \insertframenumber \quad \strut }
+        \end{beamercolorbox}
+    }
 }
 
 
@@ -79,11 +102,11 @@
 \setbeamertemplate{itemize subsubitem}{{\color{egiblue}$\scriptstyle\blacktriangleright$}}
 
 \setbeamertemplate{background}{
-    \ifnum \value{page} = 1 \relax
+    \isitfrontorback{
         \includegraphics[height=\paperheight]{images/back.png}
-    \else
+    }{
         \includegraphics[height=0.5\paperheight]{images/back_white.png}
-    \fi
+    }
 }
 
 \newdimen\headP
